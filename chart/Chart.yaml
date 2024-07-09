@@ -1,6 +1,6 @@
 apiVersion: v2
-name: core-provider
-description: Krateo PlatformOps Core Provider
+name: oasgen-provider
+description: Krateo PlatformOps OASGen Provider
 
 # A chart can be either an 'application' or a 'library' chart.
 #
