@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "oasgen-provider.labels" . | nindent 4 }}
 data:
-  CORE_PROVIDER_DEBUG: "{{ .Values.env.CORE_PROVIDER_DEBUG }}"
-  CDC_IMAGE_TAG: {{ .Values.env.CDC_IMAGE_TAG }}
+  OASGEN_PROVIDER_DEBUG: "{{ .Values.env.OASGEN_PROVIDER_DEBUG }}"
+  RDC_IMAGE_TAG: {{ .Values.env.RDC_IMAGE_TAG }}
