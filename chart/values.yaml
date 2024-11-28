@@ -105,4 +105,4 @@ affinity: {}
 
 env:
   OASGEN_PROVIDER_DEBUG: "true"
-  RDC_IMAGE_TAG: 0.1.0
+  RDC_IMAGE_TAG: 0.1.1
