@@ -51,12 +51,31 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
+            - mountPath: /tmp/assets/rdc-deployment
+              name: rdc-deployment
+              readOnly: true
+            - mountPath: /tmp/assets/rdc-configmap
+              name: rdc-configmap
+              readOnly: true
+            - mountPath: /tmp/assets/rdc-rbac
+              name: rdc-rbac
+              readOnly: true
+          {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.volumes }}
+
       volumes:
+        - name: rdc-deployment
+          configMap:
+            name: {{ include "oasgen-provider.fullname" . }}-rdc-deployment
+        - name: rdc-configmap
+          configMap:
+            name: {{ include "oasgen-provider.fullname" . }}-rdc-configmap
+        - name: rdc-rbac
+          configMap:
+            name: {{ include "oasgen-provider.fullname" . }}-rbac-configmap
+      {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ "{{" }} .name {{ "}}" }}
+  namespace: {{ "{{" }} .namespace {{ "}}" }}
+  labels:
+    app.kubernetes.io/name: {{ "{{" }} .name {{ "}}" }}
+    app.kubernetes.io/instance: {{ "{{" }} .name {{ "}}" }}-{{ "{{" }} .apiVersion {{ "}}" }}
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/part-of: krateoplatformops
+    app.kubernetes.io/managed-by: krateo
+data:
+  {{- range $key, $value := .Values.rdc.env }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
