@@ -33,15 +33,15 @@ spec:
           imagePullPolicy: {{ .Values.rdc.image.pullPolicy }}
           envFrom:
             - configMapRef:
-                name: {{ "{{" }} .name {{ "}}" }}
+                name: {{ "{{" }} .name {{ "}}" }}-configmap
           securityContext:
             {{- toYaml .Values.rdc.securityContext | nindent 12 }}
           args:
             - -debug
             - -group={{ "{{" }} .apiGroup {{ "}}" }}
             - -version={{ "{{" }} .apiVersion {{ "}}" }}
-            - -resource={{ "{{" }} .resource {{ "}}" }}
-            - -namespace={{ "{{" }} .namespace {{ "}}" }}
+            - -resource={{ "{{" }} .resource {{ "}}" }} 
+            {{/* - -namespace={{ "{{" }} .namespace {{ "}}" }} # Leave empty to watch all namespaces */}}
           ports:
             - name: http
               containerPort: {{ .Values.rdc.service.port }}
