@@ -51,3 +51,10 @@ rules:
   - configmaps
   verbs:
   - '*'
+- apiGroups:
+  - "*"
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
