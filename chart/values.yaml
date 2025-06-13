@@ -202,3 +202,4 @@ rdc:
     URL_PLURALS: http://snowplow.krateo-system.svc.cluster.local:8081/api-info/names
 env:
   OASGEN_PROVIDER_DEBUG: "true"
+  OASGEN_PROVIDER_MAX_RECONCILE_RATE: 1
