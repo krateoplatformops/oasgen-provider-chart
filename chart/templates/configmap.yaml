@@ -5,4 +5,6 @@ metadata:
   labels:
     {{- include "oasgen-provider.labels" . | nindent 4 }}
 data:
-  OASGEN_PROVIDER_DEBUG: "{{ .Values.env.OASGEN_PROVIDER_DEBUG }}"
+  {{- range $key, $value := .Values.env }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
