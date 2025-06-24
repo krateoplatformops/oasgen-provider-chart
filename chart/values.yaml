@@ -107,7 +107,7 @@ rdc:
   image:
     repository: ghcr.io/krateoplatformops/rest-dynamic-controller
     pullPolicy: IfNotPresent
-    tag: 0.2.2
+    tag: 0.2.3
   replicaCount: 1
   imagePullSecrets: []
   nameOverride: ""
