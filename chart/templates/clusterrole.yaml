@@ -4,7 +4,7 @@ metadata:
   name: {{ include "oasgen-provider.fullname" . }}-{{ .Release.Namespace }}
 rules:
 - apiGroups:
-  - swaggergen.krateo.io
+  - ogen.krateo.io
   resources:
   - restdefinitions
   - restdefinitions/status
