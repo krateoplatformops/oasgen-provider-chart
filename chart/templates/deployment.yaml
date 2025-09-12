@@ -13,6 +13,7 @@ spec:
       {{- include "oasgen-provider.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
