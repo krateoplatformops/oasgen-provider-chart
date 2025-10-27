@@ -107,7 +107,7 @@ rdc:
   image:
     repository: ghcr.io/krateoplatformops/rest-dynamic-controller
     pullPolicy: IfNotPresent
-    tag: 0.4.2
+    tag: 0.5.0
   replicaCount: 1
   imagePullSecrets: []
   nameOverride: ""
@@ -198,8 +198,7 @@ rdc:
 
   affinity: {}
 
-  env:
-    URL_PLURALS: http://snowplow.krateo-system.svc.cluster.local:8081/api-info/names
+  env: {}
 env:
   OASGEN_PROVIDER_DEBUG: "false"
   OASGEN_PROVIDER_MAX_RECONCILE_RATE: 1
