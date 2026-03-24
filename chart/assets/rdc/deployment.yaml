@@ -45,6 +45,9 @@ spec:
             - name: http
               containerPort: {{ .Values.rdc.service.port }}
               protocol: TCP
+            - name: metrics
+              containerPort: {{ .Values.rdc.env.REST_CONTROLLER_METRICS_SERVER_PORT }}
+              protocol: TCP
           livenessProbe:
             {{- toYaml .Values.rdc.livenessProbe | nindent 12 }}
           readinessProbe:
